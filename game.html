@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html class="gameLayout">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sweet Valentine</title>
+    <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
+    <script src="scripts/jquery-3.1.1.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="styles/style.css"/>
+    <script src="scripts/gamelogic.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="styles/puzzleTheme.css" />
+    <link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="images/favicon-16x16.png" sizes="16x16" />
+    <script src="scripts/loadingFirebase.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function gotoTopScores(){
+            document.location.href = "congrats.html";
+        }
+        function playAgain(){
+            document.location.href = "game.html";
+        }
+        function checkScoresClicked(){
+            document.location.href = "congrats.html";
+        }
+        $(document).ready(function() {
+            if(localStorage.getItem("b")==null){
+                localStorage["b"] = 0;
+            }
+            readTotalData();
+            $('#gameLoader').css({'display': 'block'});
+            populateImages();
+            init(document);
+        });
+        $(window).resize(function() {
+            adjustOffset();
+        });
+        window.onload = function () {
+            // Get the modal
+            // Get the modal
+            var modall = document.getElementById('myModal');
+
+            // Get the <span> element that closes the modal
+            var spann = document.getElementsByClassName("close")[0];
+
+            // When the user clicks the button, open the modal
+
+            // When the user clicks on <span> (x), close the modal
+            spann.onclick = function() {
+                modall.style.display = "none";
+                window.location.href = "congrats.html";
+            };
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modall) {
+                    modall.style.display = "none";
+                    window.location.href = "congrats.html";
+                }
+            };
+            //------------------------------------------------//
+            var modal = document.getElementById('GameTipsModal');
+            modal.style.display = "block";
+            // Get the button that opens the modal
+
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementById('gametipsclose');
+
+            // When the user clicks the button, open the modal
+            var continueee = document.getElementById("Continue");
+            continueee.onclick = function() {
+                counter();
+                modal.style.display = "none";
+            };
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+                counter();
+                modal.style.display = "none";
+            };
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                    counter();
+                }
+            };
+
+        };
+    </script>
+</head>
+<body class="gameLayout">
+<div id="loaderGame" style="display: none;"></div>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content2">
+        <span class="close" id="closeInvites">&times;</span>
+        <h3 align="center" id="BonusModal">Bonus</h3>
+    </div>
+    <!-- Modal content -->
+    <div class="modal-content22">
+
+        <p id="gameTipsParagraph" align="center">Your Last Chance to Improve Your Score</p>
+        <pre id="gameTipsParagraph" align="center">Invite Friend  <img src="images/arrow.png">  Get Extra Points</pre>
+        <img src="images/face.png" style="margin-left: auto;margin-right: auto;display: block;">
+        <pre> </pre>
+        <button id="InviteFriendsBtnHomeTips" onclick="inviteFriends();">Invite Your Friends Now</button>
+        <button id="Continuee" onclick="gotoTopScores();">Continue</button>
+
+    </div>
+</div>
+<div id="GameTipsModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span id="gametipsclose" class="close">&times;</span>
+        <p id="gameTipsParagraph"><b>Hallab 1881</b> likes to share the love with its loyal customers.</p>
+        <p id="gameTipsParagraph">We invite you to participate in our Sweet Valentine game for a chance to win special prizes for Valentine.</p>
+        <p id="gameTipsParagraph">Complete the picture puzzle with minimum time and number of movements possible to score the highest.</p>
+        <p id="gameTipsParagraph">Winners will be selected based on the top 3 scores. You Can Invite Your Friends To Play And Get 10 Points On Each Invite.</p>
+        <p id="gameTipsParagraph">Conditions apply for winners outside Lebanon - read more on Prizes page.</p>
+        <button id="Continue">Continue</button>
+        <script>
+
+
+        </script>
+    </div>
+
+</div>
+<script type="text/javascript">
+    function inviteFriends() {
+        FB.ui({
+            method: 'apprequests',
+            message: "Don't Miss The Hallab 1881 Sweet Valentine Game!",
+            title: 'Select your friends to play this game!'
+        }, function (response) {
+            var numberOfInvites = response.to.length;
+            if (numberOfInvites > 50){
+                writeTotalScoresWithBonus(50);
+                writeTotalScoresHistoryWithBonus(50);
+                localStorage["b"] = 50;
+            }else if(numberOfInvites < 50) {
+                writeTotalScoresWithBonus(numberOfInvites);
+                writeTotalScoresHistoryWithBonus(numberOfInvites);
+                localStorage["b"] = numberOfInvites;
+            }
+        });
+    }
+    function shareYourScore() {
+        FB.ui(
+                {
+                    method: 'feed',
+                    name: 'Top Score:'+totalScore,
+                    link: 'https://apps.facebook.com/hallabgame/',
+                    picture: 'https://codendot.co/hallab/images/favicon-96x96.png',
+                    caption: 'Powered By Codendot',
+                    description: "Play Hallab 1881 Sweet Valentine Game and have the chance to win our special Valentine prizes",
+                    message: ""
+                });
+    }
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId: '1219962351403346',
+            xfbml: true,
+            version: 'v2.8'
+        });
+        FB.Canvas.setSize();
+    }
+</script>
+<div id="scoreBoard">
+    <h1 id="PrizesLabel" align="center">Prizes</h1>
+    <div>
+        <img src="images/place1.png">
+        <div class="iphonebadge"><img src="images/prizebox.png"></div>
+    </div>
+    <div>
+        <img src="images/place2.png">
+        <div class="iphonebadge"><img src="images/prizebox.png"></div>
+    </div>
+    <div>
+        <img src="images/place3.png">
+        <div class="iphonebadge"><img src="images/prizebox.png"></div>
+    </div>
+</div>
+<div id="InfoBoard">
+    <div>
+        <img id="heart1" src="images/heart.png" >
+        <h1 id="gametime">Time: 0s</h1>
+    </div>
+    <div>
+        <img id="heart2" src="images/heart.png">
+        <h1 id="gamemoves">Moves: 0</h1>
+    </div>
+    <div>
+        <img id="heart3" src="images/heart.png">
+        <h1 id="gamescore">Score: 0000</h1>
+    </div>
+    <div>
+        <img id="heart3" src="images/heart.png">
+        <h1 id="BonusScore">Bonus: 0</h1>
+    </div>
+</div>
+<div id="puzzleCanvasDiv">
+    <button id="NextPuzzleButton" onclick="nextPuzzle();">Next Puzzle</button>
+    <canvas id="puzzleCanvas" width="480" height="480"></canvas>
+</div>
+<button style="position: absolute; top: 60%; left: 0" onclick="changeDifficulty()">Change Difficulty</button>
+<h2 id="conditions">*Conditions apply for winners outside Lebanon</h2>
+<img src="images/logo.png" id="hallabLogo">
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html class="congratsLayout">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sweet Valentine</title>
+    <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
+    <script src="scripts/jquery-3.1.1.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="styles/style.css"/>
+    <script src="scripts/gamelogic.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="styles/puzzleTheme.css" />
+    <link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="images/favicon-16x16.png" sizes="16x16" />
+    <script src="scripts/loadingFirebase.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function playAgain(){
+            document.location.href = "game.html";
+        }
+        function gotoHome(){
+            document.location.href = "home.html";
+        }
+        $(document).ready(function() {
+            if(localStorage.getItem("b")==null){
+                localStorage["b"] = 0;
+            }
+            readUserPicture();
+            CongratsReadUserScoreData();
+            readTopScoresData();
+        });
+    </script>
+</head>
+<body class="congratsLayout">
+<div id="loaderCongrats"></div>
+<script type="text/javascript">
+    function inviteFriends() {
+        FB.ui({
+            method: 'apprequests',
+            message: "Don't Miss The Hallab 1881 Sweet Valentine Game!",
+            title: 'Select your friends to play this game!'
+        }, function (response) {
+            var numberOfInvites = response.to.length;
+            if (numberOfInvites > 50){
+                writeTotalScoresWithBonus(50);
+                writeTotalScoresHistoryWithBonus(50);
+                localStorage["b"] = 50;
+            }else if(numberOfInvites < 50) {
+                writeTotalScoresWithBonus(numberOfInvites);
+                writeTotalScoresHistoryWithBonus(numberOfInvites);
+                localStorage["b"] = numberOfInvites;
+            }
+        });
+    }
+    function shareYourScore() {
+        FB.ui(
+                {
+                    method: 'feed',
+                    name: 'Hallab 1881 Sweet Valentine Puzzle Game',
+                    link: 'https://apps.facebook.com/hallabgame/',
+                    picture: 'http://codendot.co/hallab/images/logoHshare.png',
+                    caption: 'Powered By Codendot',
+                    description: "",
+                    message: ""
+                });
+    }
+        window.fbAsyncInit = function() {
+        FB.init({
+            appId: '1219962351403346',
+            xfbml: true,
+            version: 'v2.8'
+        });
+        FB.Canvas.setSize();
+    };
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+<div id="congratsContainer">
+<div id="YourScoreDiv" >
+    <img id="yaay" src="images/yaaay.png"style="display: none; position:absolute;left: 165px; top: 20px">
+    <img id="UserProfileImg" style="display: inline-block;position:absolute;top: 130px;left:185px;width: 80px;height: 80px">
+    <div style="display: inline-block;position:absolute;top: 200px;left:15px;height: 0px">
+        <h1 id="fontred"  align="center">Time</h1>
+        <h2  id="YourTime"  style="position: relative;bottom: 20px" align="center"></h2>
+    </div>
+    <div style="display: inline-block;position:absolute;top: 200px;left:200px">
+        <h1 id="fontred"  align="center">Score</h1>
+        <h2  id="YourScore"  style="position: relative;bottom: 20px" align="center"></h2>
+    </div>
+    <div style="display: inline-block;position:absolute;top: 200px;left:375px">
+        <h1 id="fontred"  align="center">Moves</h1>
+        <h2  id="YourMoves"  style="position: relative;bottom: 20px" align="center"></h2>
+    </div>
+    <h2 id="yourtopscorelabel" style="display: block; position:absolute;left: 180px; top: 310px" align="center">Your Top Score</h2>
+    <div style="display: inline-block;position:absolute;top:340px;left:15px" >
+        <h1 id="yourtopscorelabel" align="center">Time</h1>
+        <h2  id="YourTopTime"  style="position: relative;bottom: 20px" align="center"></h2>
+    </div>
+    <div id="yourtopscorelabel" style="display: inline-block;position:absolute;top: 340px;left:200px">
+         <h1  align="center">Score</h1>
+         <h2  id="YourTopScore"  style="position: relative;bottom: 20px" align="center"></h2>
+    </div>
+    <div id="yourtopscorelabel" style="display: inline-block;position:absolute;top: 340px;left:370px">
+        <h1  align="center">Moves</h1>
+        <h2  id="YourTopMoves"  style="position: relative;bottom: 20px" align="center"></h2>
+    </div>
+    <button id="PlayAgainBtnGameCongrats" onclick="playAgain();" style="position:absolute; bottom: 5px;left: 5px"></button>
+    <button id="ShareYourScoreBtnCongrats" onclick="shareYourScore();" style="position:absolute; bottom: 5px;right: 5px"></button>
+
+
+</div>
+<div id="TopScoresDiv">
+    <div id="TopScoresDivChild">
+        <h1 style="position: relative;bottom: 15px;" id="font2" align="center">Top Scores</h1>
+    </div>
+    <div id="TopScoresDivChildChild">
+        <div id="scoreRow1" style="display: none">
+            <h1 style="display: inline-block;position: absolute;top:10px;left: 10px;font-size: 20px;" id="font">1</h1>
+            <img id="Img1" style="display: inline-block;position: absolute;top:10px;left: 40px;font-size: 20px;" width="50px" height="50px" src="images/profile.png">
+            <h1 style="display: inline-block;position: absolute;top:10px;left: 100px;font-size: 20px;" id="Name1">NAME</h1>
+            <div style="position: absolute;top:0px;left: 200px;font-size: 20px;">
+                <h1 id="font" align="center">Time</h1>
+                <h2 id="Time1" style="position: relative;bottom:15px" align="center">2s</h2>
+            </div>
+            <div style="position: absolute;top:0px;left: 265px;font-size: 20px;">
+                <h1 id="font" >Score</h1>
+                <h2 id="Score1" style="position: relative;bottom:15px" align="center">2000</h2>
+            </div>
+            <div style="position: absolute;top:0px;left: 330px;font-size: 20px;">
+                <h1 id="font" >Moves</h1>
+                <h2 id="Moves1" style="position: relative;bottom:15px" align="center">30</h2>
+            </div>
+            <div style="position: absolute;top:0px;left: 395px;font-size: 20px;">
+                <h1 id="font" >Bonus</h1>
+                <h2 id="Bonus1" style="position: relative;bottom:15px" align="center">30</h2>
+            </div>
+            <div style="position: absolute;top:0px;left: 450px;font-size: 20px;">
+                <h1 id="font" >Total</h1>
+                <h2 id="Total1" style="position: relative;bottom:15px" align="center">30</h2>
+            </div>
+        </div>
+        <div id="scoreRow2" style="display: none">
+            <h1 style="display: inline-block;position: absolute;top:10px;left: 10px;font-size: 20px;" id="font">2</h1>
+            <img id="Img2" style="display: inline-block;position: absolute;top:10px;left: 40px;font-size: 20px;" width="50px" height="50px" src="images/profile.png">
+            <h1 style="display: inline-block;position: absolute;top:10px;left: 100px;font-size: 20px;" id="Name2">NAME</h1>
+            <div style="position: absolute;top:0px;left: 200px;font-size: 20px;">
+                <h1 id="font" align="center">Time</h1>
+                <h2 id="Time2" style="position: relative;bottom:15px" align="center">2s</h2>
+            </div>
+            <div style="position: absolute;top:0px;left: 265px;font-size: 20px;">
+                <h1 id="font" >Score</h1>
+                <h2 id="Score2" style="position: relative;bottom:15px" align="center">2000</h2>
+            </div>
+            <div style="position: absolute;top:0px;left: 330px;font-size: 20px;">
+                <h1 id="font" >Moves</h1>
+                <h2 id="Moves2" style="position: relative;bottom:15px" align="center">30</h2>
+            </div>
+            <div style="position: absolute;top:0px;left: 395px;font-size: 20px;">
+                <h1 id="font" >Bonus</h1>
+                <h2 id="Bonus2" style="position: relative;bottom:15px" align="center">30</h2>
+            </div>
+            <div style="position: absolute;top:0px;left: 450px;font-size: 20px;">
+                <h1 id="font" >Total</h1>
+                <h2 id="Total2" style="position: relative;bottom:15px" align="center">30</h2>
+            </div>
+        </div>
+        <div id="scoreRow3" style="display: none">
+            <h1 style="display: inline-block;position: absolute;top:10px;left: 10px;font-size: 20px;" id="font">3</h1>
+            <img id="Img3" style="display: inline-block;position: absolute;top:10px;left: 40px;font-size: 20px;" width="50px" height="50px" src="images/profile.png">
+            <h1 style="display: inline-block;position: absolute;top:10px;left: 100px;font-size: 20px;" id="Name3">NAME</h1>
+            <div style="position: absolute;top:0px;left: 200px;font-size: 20px;">
+                <h1 id="font" align="center">Time</h1>
+                <h2 id="Time3" style="position: relative;bottom:15px" align="center">2s</h2>
+            </div>
+            <div style="position: absolute;top:0px;left: 265px;font-size: 20px;">
+                <h1 id="font" >Score</h1>
+                <h2 id="Score3" style="position: relative;bottom:15px" align="center">2000</h2>
+            </div>
+            <div style="position: absolute;top:0px;left: 330px;font-size: 20px;">
+                <h1 id="font" >Moves</h1>
+                <h2 id="Moves3" style="position: relative;bottom:15px" align="center">30</h2>
+            </div>
+            <div style="position: absolute;top:0px;left: 395px;font-size: 20px;">
+                <h1 id="font" >Bonus</h1>
+                <h2 id="Bonus3" style="position: relative;bottom:15px" align="center">30</h2>
+            </div>
+            <div style="position: absolute;top:0px;left: 450px;font-size: 20px;">
+                <h1 id="font" >Total</h1>
+                <h2 id="Total3" style="position: relative;bottom:15px" align="center">30</h2>
+            </div>
+        </div>
+        <div id="scoreRow4" style="display: none">
+            <h1 style="display: inline-block;position: absolute;top:10px;left: 10px;font-size: 20px;" id="font">4</h1>
+            <img id="Img4" style="display: inline-block;position: absolute;top:10px;left: 40px;font-size: 20px;" width="50px" height="50px" src="images/profile.png">
+            <h1 style="display: inline-block;position: absolute;top:10px;left: 100px;font-size: 20px;" id="Name4">NAME</h1>
+            <div style="position: absolute;top:0px;left: 200px;font-size: 20px;">
+                <h1 id="font" align="center">Time</h1>
+                <h2 id="Time4" style="position: relative;bottom:15px" align="center">2s</h2>
+            </div>
+            <div style="position: absolute;top:0px;left: 265px;font-size: 20px;">
+                <h1 id="font" >Score</h1>
+                <h2 id="Score4" style="position: relative;bottom:15px" align="center">2000</h2>
+            </div>
+            <div style="position: absolute;top:0px;left: 330px;font-size: 20px;">
+                <h1 id="font" >Moves</h1>
+                <h2 id="Moves4" style="position: relative;bottom:15px" align="center">30</h2>
+            </div>
+            <div style="position: absolute;top:0px;left: 395px;font-size: 20px;">
+                <h1 id="font" >Bonus</h1>
+                <h2 id="Bonus4" style="position: relative;bottom:15px" align="center">30</h2>
+            </div>
+            <div style="position: absolute;top:0px;left: 450px;font-size: 20px;">
+                <h1 id="font" >Total</h1>
+                <h2 id="Total4" style="position: relative;bottom:15px" align="center">30</h2>
+            </div>
+        </div>
+        <div id="scoreRow5" style="display: none">
+            <h1 style="display: inline-block;position: absolute;top:10px;left: 10px;font-size: 20px;" id="font">5</h1>
+            <img id="Img5" style="display: inline-block;position: absolute;top:10px;left: 40px;font-size: 20px;" width="50px" height="50px" src="images/profile.png">
+            <h1 style="display: inline-block;position: absolute;top:10px;left: 100px;font-size: 20px;" id="Name5">NAME</h1>
+            <div style="position: absolute;top:0px;left: 200px;font-size: 20px;">
+                <h1 id="font" align="center">Time</h1>
+                <h2 id="Time5" style="position: relative;bottom:15px" align="center">2s</h2>
+            </div>
+            <div style="position: absolute;top:0px;left: 265px;font-size: 20px;">
+                <h1 id="font" >Score</h1>
+                <h2 id="Score5" style="position: relative;bottom:15px" align="center">2000</h2>
+            </div>
+            <div style="position: absolute;top:0px;left: 330px;font-size: 20px;">
+                <h1 id="font" >Moves</h1>
+                <h2 id="Moves5" style="position: relative;bottom:15px" align="center">30</h2>
+            </div>
+            <div style="position: absolute;top:0px;left: 395px;font-size: 20px;">
+                <h1 id="font" >Bonus</h1>
+                <h2 id="Bonus5" style="position: relative;bottom:15px" align="center">30</h2>
+            </div>
+            <div style="position: absolute;top:0px;left: 450px;font-size: 20px;">
+                <h1 id="font" >Total</h1>
+                <h2 id="Total5" style="position: relative;bottom:15px" align="center">30</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<a href="http://www.hallab.com.lb" id="hlink" target="_blank">www.hallab.com.lb</a>
+<img src="images/logo.png" id="hallabLogo">
+</div>
+</body>
+</html>

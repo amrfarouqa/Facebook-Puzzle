@@ -1,0 +1,1086 @@
+@font-face {
+    font-family: 'SteelfishOutline-Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('SteelfishOutline-Regular'), url('steelfish outline.woff') format('woff');
+}
+.gameLayout{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-color: rgb(155,21,32);
+}
+#CongratsParagraph{
+    font-size: 20px;
+    color: #ffffff;
+    font-family:Steelfis;
+    font-weight:normal;
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.modal-content22 {
+    background-color: rgb(155,21,32);
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%;
+    color: #ffffff;
+}
+/* Modal Content */
+.modal-content {
+    background-color: rgb(155,21,32);
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%;
+    color: #ffffff;
+}
+.modal-content2 {
+    background-color: rgb(71,0,0);
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%;
+    color: #ffffff;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#TopScoresDivChild{
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    background-color: rgb(125,14,22);
+}
+#TopScoresDivChildChild{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50px;
+    background: rgb(180,23,37);
+}
+#scoreRow{
+    position: relative;
+    width: 100%;
+    height: 80px;
+    left: 10px;
+}
+#scoreRow1{
+    position: relative;
+    width: 100%;
+    height: 80px;
+    left: 10px;
+}
+#scoreRow2{
+    position: relative;
+    width: 100%;
+    height: 80px;
+    left: 10px;
+}
+#scoreRow3{
+    position: relative;
+    width: 100%;
+    height: 80px;
+    left: 10px;
+}
+#scoreRow4{
+    position: relative;
+    width: 100%;
+    height: 80px;
+    left: 10px;
+}
+#scoreRow5{
+    position: relative;
+    width: 100%;
+    height: 80px;
+    left: 10px;
+}
+#YourScoreDiv{
+    width: 450px;
+    height: 480px;
+    background: #ffffff;
+    position: absolute;
+    top: 2%;
+    left:2%;
+}
+#TopScoresDiv{
+    position: absolute;
+    right: 2%;
+    top: 2%;
+    width: 500px;
+    height: 400px;
+    background: rgb(180,23,37);
+}
+#TopTopScoreDiv{
+    position: absolute;
+    top: 10%;
+    left: 28%;
+    width: 400px;
+    height: 400px;
+    background: rgb(180,23,37);
+}
+
+#scoreBoard{
+    position: absolute;
+    top: 10%;
+    left: 80%;
+}
+#conditions{
+    display:inline-block;
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+    position: absolute;
+    bottom: 0%;
+    right: 2%;
+}
+#hallabLogo{
+    display:inline-block;
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+    position: absolute;
+    bottom: 5%;
+    left: 2%;
+    width: 180px;
+    height: 77px;
+}
+#InfoBoard{
+    position: absolute;
+    top: 10%;
+    left: 5%;
+}
+#gamemoves{
+    display:inline-block;
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+}
+#gametime{
+    display:inline-block;
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+}
+#gamescore{
+    display:inline-block;
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+}
+#BonusScore{
+    display:inline-block;
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+}
+#piecesSolved{
+    display:inline-block;
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+}
+#PrizesLabel{
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+}
+.introContent{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: url("../images/gamelayoutmain.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-color: rgb(155,21,32);
+}
+
+@font-face {
+    font-family: 'Steelfish-Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Steelfish-Regular'), url('steelfish.woff') format('woff');
+}
+
+
+@font-face {
+    font-family: 'Steelfish-Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Steelfish-Bold'), url('steelfish bd.woff') format('woff');
+}
+
+
+html, body {
+    background-color: rgb(155,21,32);
+}
+
+#loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+#loaderCongrats{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+#loaderGame {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+/* Add animation to "page content" */
+.animate-bottom {
+    position: absolute;
+    -webkit-animation-name: animatebottom;
+    -webkit-animation-duration: 1s;
+    animation-name: animatebottom;
+    animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+    from { bottom:-100px; opacity:0 }
+    to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom {
+    from{ bottom:-100px; opacity:0 }
+    to{ bottom:0; opacity:1 }
+}
+#welcome{
+    position:absolute;
+    top:200px;
+    left:160px;
+}
+
+#checkBtn{
+    position:absolute;
+    top:260px;
+    left:80px;
+}
+#nextImageButton{
+    position:absolute;
+    top:320px;
+    left:80px;
+}
+#changeDifficultyButton{
+    position:absolute;
+    top:380px;
+    left:80px;
+}
+
+#puzzleCanvasDiv{
+    padding: 0;
+    margin: 0 auto;
+    display: block;
+    width: 480px;
+    height: 480px;
+    position: absolute;
+    top: 40px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(186,186,187);
+    border: 30px solid transparent;
+    border-image:  url("../images/framegray.png") 30 round;
+}
+
+#congratsContainer{
+    padding: 0;
+    margin: auto;
+    display: block;
+    width: 1000px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(155,21,32);
+}
+#PrizesContainer{
+    padding: 0;
+    margin: auto;
+    display: block;
+    width: 900px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(155,21,32);
+}
+.congratsLayout{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-color: rgb(155,21,32);
+}
+
+#puzzleCanvas{
+    background-color: rgb(186,186,187);
+}
+#gameStatus{
+    color: #ffffff;
+    font-size: 18px;
+}
+#homeButtons{
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 20px;
+}
+#CongratsButtons{
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 20px;
+}
+#playButton{
+    display: block;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 200px;
+}
+#authorize {
+    background-color: #f44336; /* red */
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    margin: auto auto auto auto;
+    font-size: 40px;
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    bottom: 200px;
+    font-family: Arial;
+}
+#please{
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 300px;
+    color: #ffffff;
+    font-size: 30px;
+}
+#Homelogo{
+    display: block;
+    position: relative;
+    top: 30px;
+    margin: auto auto auto auto;
+}
+#CheckScoresButton{
+    margin-left: 10px;
+    margin-top: 10px;
+    display: block;
+    background-color: rgb(254,254,254);
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    font-size: 30px;
+    color: red;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+}
+#NextPuzzleButton{
+    padding: 20px;
+    display: none;
+    position: absolute;
+    top:50%;
+    left:25%;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    font-size: 70px;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+}
+
+#GameTipsButton{
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    font-size: 30px;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+}
+#PlayAgainBtnGame{
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    font-size: 30px;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+}
+#PlayAgainBtnGameCongrats{
+    background: url('../images/play-again.png') no-repeat;
+    width: 96px;
+    height: 35px;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
+#ShareYourScoreBtnGame{
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    font-size: 30px;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+}
+#gotoTopScores{
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    font-size: 30px;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+}
+#PlayAgainBtn{
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    font-size: 30px;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+}
+#ShareYourScoreBtn{
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    font-size: 30px;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+}
+#ShareYourScoreBtnCongrats{
+    background: url('../images/share.png') no-repeat;
+    width: 96px;
+    height: 35px;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
+#gotoHomeBtn{
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    font-size: 30px;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+}
+#InviteFriendsBtn{
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    font-size: 30px;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+}
+#TopScoresButton{
+    margin-left: 50px;
+    font-size: 30px;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+}
+#PrizesButton{
+    margin-left: 50px;
+    font-size: 30px;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    color: #ffffff;
+    font-family: 'Steelfish-Regular';
+    font-weight: inherit;
+}
+#InviteFriendsBtnHome{
+    margin-left: 50px;
+    font-size: 30px;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    color: #ffffff;
+    font-family: 'Steelfish-Regular';
+    font-weight: inherit;
+}
+#Continuee{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 200px;
+    font-size: 25px;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    color: #ffffff;
+    font-family: 'Steelfish-Regular';
+    font-weight: inherit;
+}
+
+#InviteFriendsBtnHomeTips{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 200px;
+    font-size: 25px;
+    background-color: #ffffff;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    color: red;
+    font-family: 'Steelfish-Regular';
+    font-weight: inherit;
+}
+#InviteFriendsBtnHomeGameTips{
+    font-size: 30px;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    color: #ffffff;
+    font-family: 'Steelfish-Regular';
+    font-weight: inherit;
+}
+#Continue{
+    font-size: 30px;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    color: #ffffff;
+    font-family: 'Steelfish-Regular';
+    font-weight: inherit;
+}
+#gameTipsParagraph{
+    font-size: 20px;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+    letter-spacing: 2px;
+}
+#fontPrizes{
+    font-size: 20px;
+    color: #ffffff;
+    font-family:Steelfis;
+    font-weight:normal;
+}
+.circleBase {
+    border-radius: 50%;
+}
+.Prizetype1 {
+    width: 125px;
+    height: 125px;
+    background: red;
+    border: 3px solid red;
+}
+.iphonebadge {
+    border-radius:99px;
+    -moz-border-radius:99px;
+    -webkit-border-radius:99px;
+    background:red;
+    color:#fff;
+    border:3px red solid;
+    background-color: Transparent;
+    -webkit-box-shadow: 0px 2px 4px #000000; /* Saf3-4 */
+    -moz-box-shadow: 0px 2px 4px #000000; /* FF3.5 - 3.6 */
+    box-shadow: 0px 2px 4px #000000; /* Opera 10.5, IE9, FF4+, Chrome 10+ */
+    display:inline-block;
+    padding:2px 2px 2px 2px ;
+    margin:3px;
+}
+#fontPrizesValues{
+    font-size: 18px;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+    letter-spacing: 2px;
+}
+#sweet{
+    font-size: 40px;
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+}
+#font{
+    font-size: 18px;
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+}
+#font2{
+    font-size: 30px;
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+}
+#Time1{
+    text-decoration: none;
+    font-size: 18px;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+    font-size: 18px;
+}
+
+#Time2{
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+    font-size: 18px;
+}
+
+#Time3{
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+    font-size: 18px;
+}
+
+#Time4{
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+    font-size: 18px;
+}
+
+#Time5{
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+    font-size: 18px;
+}
+#Moves1{
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+    font-size: 18px;
+}
+#Bonus1{
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+    font-size: 18px;
+}
+#Bonus2{
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+    font-size: 18px;
+}
+#Bonus3{
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+    font-size: 18px;
+}
+#Bonus4{
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+    font-size: 18px;
+}
+#Bonus5{
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+    font-size: 18px;
+}
+#Total1{
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+    font-size: 18px;
+}
+#Total2{
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+    font-size: 18px;
+}
+#Total3{
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+    font-size: 18px;
+}
+#Total4{
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+    font-size: 18px;
+}
+#Total5{
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+    font-size: 18px;
+}
+#Moves2{
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+    font-size: 18px;
+}
+
+#Moves3{
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+    font-size: 18px;
+}
+
+#Moves4{
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+}
+
+#Moves5{
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+    font-size: 18px;
+}
+#Score1{
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+    font-size: 18px;
+}
+
+#Score2{
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+    font-size: 18px;
+}
+
+#Score3{
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+    font-size: 18px;
+}
+#BonusModal{
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+    font-size: 45px;
+}
+#Score4{
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+    font-size: 18px;
+}
+
+#Score5{
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+    font-size: 18px;
+}
+#Name1{
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+}
+
+#Name2{
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+}
+
+#Name3{
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+}
+
+#Name4{
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+}
+
+#Name5{
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+}
+#YourScore{
+    text-decoration: none;
+    color: rgb(233,15,38);
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+}
+#YourBonus{
+    text-decoration: none;
+    color: rgb(233,15,38);
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+}
+#yourtopscorelabel{
+    text-decoration: none;
+    color:rgb(166,169,171);
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+}
+#YourTopTime{
+    text-decoration: none;
+    color:rgb(166,169,171);
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+}
+#YourTopScore{
+    text-decoration: none;
+    color:rgb(166,169,171);
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+}
+#YourTopMoves{
+    text-decoration: none;
+    color:rgb(166,169,171);
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+}
+#YourMoves{
+    text-decoration: none;
+    color: rgb(233,15,38);
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+}
+#YourFinalScore{
+    text-decoration: none;
+    color: rgb(233,15,38);
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+}
+#YourTime{
+    text-decoration: none;
+    color: rgb(233,15,38);
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+}
+#fontred{
+    text-decoration: none;
+    color: rgb(233,15,38);
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+}
+#hlink{
+    position:absolute;
+    bottom:22px;
+    right:22px;
+    font-family: Arial;
+    color: #ffffff;
+    text-decoration: none;
+}
+/* unvisited link */
+a:link {
+    color: #ffffff;
+}
+
+/* visited link */
+a:visited {
+    color: #ffffff
+}
+
+/* mouse over link */
+a:hover {
+    color: #ffffff;
+}
+
+/* selected link */
+a:active {
+    color: white;
+}
+a {
+    display:inline-block;
+    text-decoration: none;
+    color: #ffffff;
+    font-family:'Steelfish-Regular';
+    font-weight:normal;
+}
