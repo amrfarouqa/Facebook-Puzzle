@@ -1,4 +1,4 @@
-# Facebook-Puzzle
-Facebook Puzzle Game designed for Facebook HTML5 Canvas
-Change Facebook App Id to your current App Id and set up the javascript files to meet your requirements.
-Enjoy!!
+# Hallab-Lebanon-Facebook-Puzzle-Game
+A Facebook Puzzle For Hallab Lebanon Built With (Firebase, MySQL/PHP) As A Backend, Using (HTML5 Facebook Canvas). Published On The Valentine Day Of The Year 2017. Winners Got Rewards From Hallab... Under Supervision Of Codendot Lebanon.
+
+<img src="images/logoH.png" width="350">
